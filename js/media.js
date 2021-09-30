@@ -79,8 +79,8 @@ function mediadata(){
 }
 
 
-function back() {i--;a(i);mediadata()}
-function next() {i++;a(i);mediadata()}
+function back() {i--;a(i);mediadata();$("#back").animate({borderRadius:"100px"}, 200).animate({borderRadius:"20px"}, 150);}
+function next() {i++;a(i);mediadata();$("#next").animate({borderRadius:"100px"}, 200).animate({borderRadius:"20px"}, 150);}
 
 function a(i, event){
   var audioplayer = document.querySelector("#audio");

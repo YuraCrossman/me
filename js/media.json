@@ -38,21 +38,13 @@
         "sizes":"512x512",
         "type":"image/png"}
       ]},
-      {"mediaArtist": "Akira",
+      {"mediaArtist": "Genki Tatsu",
         "mediaTitle": "Снова я напиваюсь",
         "mediaAlbum": "#RusUTAU",
         "mediaArt": [
-          {"src": "images/ava.png",
-          "sizes":"512x512",
+          {"src": "images/Riot.bmp",
+          "sizes":"100x100",
           "type":"image/png"}
-        ]},
-        {"mediaArtist": "Akira",
-          "mediaTitle": "Снова я напиваюсь",
-          "mediaAlbum": "#RusUTAU",
-          "mediaArt": [
-            {"src": "images/ava.png",
-            "sizes":"512x512",
-            "type":"image/png"}
-          ]}
+        ]}
   ]
 }
