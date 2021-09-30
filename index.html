@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+		<head>
+		<meta charset="utf-8">
+	 	<meta HTTP-equiv="pragma" content="no-cache">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Yura Crossman</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Portfolio by Yura Crossman" />
+		<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+		<meta name="author" content="Yura Crossman" />
+
+	  	<!-- Facebook and Twitter integration -->
+		<meta property="og:title" content="Yura Crossman"/>
+		<meta property="og:image" content=""/>
+		<meta property="og:url" content=""/>
+		<meta property="og:site_name" content="Yura Crossman"/>
+		<meta property="og:description" content=""/>
+		<meta name="twitter:title" content="Yura Crossman" />
+		<meta name="twitter:image" content="" />
+		<meta name="twitter:url" content="" />
+		<meta name="twitter:card" content="" />
+
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/e4562f9c8d.js" crossorigin="anonymous"></script>
+
+		<!-- Animate.css -->
+		<link rel="stylesheet" href="css/animate.css">
+		<!-- Icomoon Icon Fonts-->
+		<link rel="stylesheet" href="css/icomoon.css">
+		<!-- Bootstrap  -->
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<!-- Theme style  -->
+		<link rel="stylesheet" href="css/style.css">
+
+		<!-- Magnific Popup -->
+		<link rel="stylesheet" href="css/magnific-popup.css">
+
+		<!-- jQuery -->
+		<script src="js/jquery.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+
+		<!-- Stellar -->
+		<script src="js/jquery.stellar.min.js"></script>
+
+		<!-- Waypoints -->
+		<script src="js/jquery.waypoints.min.js"></script>
+
+		<!-- Magnific Popup -->
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="js/magnific-popup-options.js"></script>
+
+		<!-- MAIN JS -->
+		<script src="js/main.js"></script>
+		<script src="js/media.js"></script>
+
+		<!-- Audio Player -->
+		<script type="text/javascript">
+			document.addEventListener('play', function(e){
+				var audios = document.getElementsByTagName('audio'); for(var i = 0, len = audios.length; i < len;i++){
+					if(audios[i] != e.target){
+						audios[i].pause();
+					}
+				}
+			}, true);
+		</script>
+
+		<!--script src="audiojs/audio.min.js"></script-->
+
+		<!-- Modernizr JS -->
+		<script src="js/modernizr-2.6.2.min.js"></script>
+		<!-- FOR IE9 below -->
+		<!--[if lt IE 9]>
+		<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div id="fh5co-header" style="background-image: url(images/polygon.png);" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="bio-photo text-center">
+				<a onclick="shake_script();"><img src="images/ava.png" width="190px" title="art by MarksCreations"></a>
+			</div>
+		</div>
+
+		<div id="fh5co-main">
+
+			<div class="fh5co-section fh5co-works">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-sm-4 col-xs-12 section-heading">
+							<h2>01. My Works</h2>
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<div class="row">
+								<div class="col-md-6 col-sm-6 col-xs-6 work animate-box">
+									<a href="file/melt_mix.mp4" poster="file/melt_mix.jpg" title="Melt 2MIX Cover" class="popup-youtube a1"><img src="file/melt_mix.jpg" alt="Melt" class="img-responsive"></a>
+								</div>
+								<div class="col-md-6 col-sm-6 col-xs-6 work animate-box">
+									<a href="file/edit.mp4" class="popup-youtube" title="Edit"><img src="images/img_2.jpg" alt="Edit" class="img-responsive"></a>
+								</div>
+								<div class="col-md-6 col-sm-6 col-xs-6 work animate-box">
+									<a href="file/clip1.mp4" class="popup-youtube" title="Strobo Night"><img src="images/img_3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive"></a>
+								</div>
+								<div class="col-md-6 col-sm-6 col-xs-6 work animate-box">
+									<a href="images/img_4.jpg" class="image-popup" title="Title Of Work Here"><img src="images/img_4.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive"></a>
+								</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 work animate-box text-center">
+									<div class="player" style="margin-bottom: -30px;">
+										<button class="btn btn-sm" style="margin-bottom: 40px;" id="back" onclick="back();" disabled><</button>
+										<audio src="file/melt_mix.mp4" id="audio" preload="auto" controls>Error</audio>
+										<button class="btn btn-sm btn-primary" style="margin-bottom: 40px;" id="next" onclick="next();">></button>
+									</div>
+									<div class="playlist btn-group-vertical" style="width: 330px;overflow-y: auto;height: 200px;">
+										<button class="btn btn-sm btn-light btn-primary" onclick="a(i=0)">Melt2Mix</button>
+										<button class="btn btn-sm btn-light" onclick="a(i=1)">Лишь шаурма</button>
+										<button class="btn btn-sm btn-light" onclick="a(i=2)">Addict</button>
+										<button class="btn btn-sm btn-light" onclick="a(i=3)">Снова я напиваюсь</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+			<!-- END .fh5co-section -->
+
+			<script async src="https://an.yandex.ru/system/widget.js"></script>
+			<script>
+			    (yaads = window.yaads || []).push({
+			        id: "630054-1",
+			        render: "#id-630054-1"
+			    });
+			</script>
+			<div id="id-630054-1"></div>
+
+
+			<div class="fh5co-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-sm-4 col-xs-12 section-heading">
+							<h2>02. About Me</h2>
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<div class="row">
+								<div class="col-md-12">
+								<p>Привет хули</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- END .fh5co-section -->
+
+			<div class="fh5co-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-sm-4 col-xs-12 section-heading">
+							<h2>03. Social networks</h2>
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<div class="col-md-12">
+								<a href="https://www.youtube.com/c/YuraCrossman" target="_blank"><i class="fab fa-youtube">YouTube</i></a>
+								<a href="https://vk.com/blue_trey" target="_blank"><i class="fab fa-vk">VK</i></a>
+								<style media="screen">
+									.fab{
+										font-size: 40px;
+									}
+								</style>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="fh5co-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-sm-4 col-xs-12 section-heading">
+							<h2>04. Copyright</h2>
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<div class="col-md-12">
+								<p>&copy;2021 Yura Crossman</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- END .fh5co-section -->
+
+		</div>
+
+		<div class="modal fade" tabindex="-1" role="dialog" id="ads" aria-labelledby="staticBackdropLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<!-- Yandex.RTB R-A-630054-2 -->
+						<div id="yandex_rtb_R-A-630054-2"></div>
+						<script type="text/javascript">
+						    (function(w, d, n, s, t) {
+						        w[n] = w[n] || [];
+						        w[n].push(function() {
+						            Ya.Context.AdvManager.render({
+						                blockId: "R-A-630054-2",
+						                renderTo: "yandex_rtb_R-A-630054-2",
+						                async: true
+						            });
+						        });
+						        t = d.getElementsByTagName("script")[0];
+						        s = d.createElement("script");
+						        s.type = "text/javascript";
+						        s.src = "//an.yandex.ru/system/context.js";
+						        s.async = true;
+						        t.parentNode.insertBefore(s, t);
+						    })(this, this.document, "yandexContextAsyncCallbacks");
+						</script>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function shake_script() {
+				function c() {
+						var e = document.createElement("link");
+						e.setAttribute("type", "text/css");
+						e.setAttribute("rel", "stylesheet");
+						e.setAttribute("href", f);
+						e.setAttribute("class", l);
+						document.body.appendChild(e)
+				}
+				function h() {
+						var e = document.getElementsByClassName(l);
+						for (var t = 0; t < e.length; t++) {
+								document.body.removeChild(e[t])
+						}
+				}
+				function p() {
+						var e = document.createElement("div");
+						e.setAttribute("class", a);
+						document.body.appendChild(e);
+						setTimeout(function () {
+								document.body.removeChild(e)
+						}, 100)
+				}
+				function d(e) {
+						return {
+								height: e.offsetHeight,
+								width: e.offsetWidth
+						}
+				}
+				function v(i) {
+						var s = d(i);
+						return s.height > e && s.height < n && s.width > t && s.width < r
+				}
+				function m(e) {
+						var t = e;
+						var n = 0;
+						while ( !! t) {
+								n += t.offsetTop;
+								t = t.offsetParent
+						}
+						return n
+				}
+				function g() {
+						var e = document.documentElement;
+						if ( !! window.innerWidth) {
+								return window.innerHeight
+						} else if (e && !isNaN(e.clientHeight)) {
+								return e.clientHeight
+						}
+						return 0
+				}
+				function y() {
+						if (window.pageYOffset) {
+								return window.pageYOffset
+						}
+						return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+				}
+				function E(e) {
+						var t = m(e);
+						return t >= w && t <= b + w
+				}
+				function S() {
+						var e = document.createElement("audio");
+						e.setAttribute("class", l);
+						e.src = i;
+						e.loop = false;
+						e.addEventListener("canplay", function () {
+								setTimeout(function () {
+										x(k)
+								}, 500);
+								setTimeout(function () {
+										N();
+										p();
+										for (var e = 0; e < O.length; e++) {
+												T(O[e])
+										}
+								}, 15500)
+						}, true);
+						e.addEventListener("ended", function () {
+								N();
+								h()
+						}, true);
+						e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+						document.body.appendChild(e);
+						e.play()
+				}
+				function x(e) {
+						e.className += " " + s + " " + o
+				}
+				function T(e) {
+						e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+				}
+				function N() {
+						var e = document.getElementsByClassName(s);
+						var t = new RegExp("\\b" + s + "\\b");
+						for (var n = 0; n < e.length;) {
+								e[n].className = e[n].className.replace(t, "")
+						}
+				}
+				var e = 30;
+				var t = 30;
+				var n = 350;
+				var r = 350;
+				var i = "https://s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+				var s = "mw-harlem_shake_me";
+				var o = "im_first";
+				var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+				var a = "mw-strobe_light";
+				var f = "https://s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+				var l = "mw_added_css";
+				var b = g();
+				var w = y();
+				var C = document.getElementsByTagName("*");
+				var k = null;
+				for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+								if (E(A)) {
+										k = A;
+										break
+								}
+						}
+				}
+				if (A === null) {
+						console.warn("Could not find a node of the right size. Please try a different page.");
+						return
+				}
+				c();
+				S();
+				var O = [];
+				for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+								O.push(A)
+						}
+				}
+			}
+		</script>
+
+	</body>
+</html>
