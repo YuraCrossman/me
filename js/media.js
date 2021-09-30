@@ -52,13 +52,13 @@ var medialist = [{
         "sizes":"512x512",
         "type":"image/png"}
       ]},
-      {"mediaArtist": "Kouji Akira",
+      {"mediaArtist": "Genki Tatsu",
         "mediaTitle": "Снова я напиваюсь (Cover)",
         "mediaAlbum": "#RusUTAU",
         "mediaArt": [
-          {"src": "images/ava.png",
-          "sizes":"512x512",
-          "type":"image/png"}
+          {"src": "images/Riot.bmp",
+          "sizes":"100x100",
+          "type":"image/bmp"}
         ]},
   ]
 let mediaTitle = medialist[i].mediaTitle; let mediaArtist = medialist[i].mediaArtist; let mediaAlbum = medialist[i].mediaAlbum; let mediaArt = medialist[i].mediaArt;
