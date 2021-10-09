@@ -17,7 +17,7 @@ $(function(){
 
 document.getElementById("audio").onended = function(){
     i++;
-    if (i <= 4){
+    if (i <= 3){
       a(i);
     }else{i--}
   }
