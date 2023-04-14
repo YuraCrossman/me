@@ -15,52 +15,80 @@ $(function(){
     });
   }
 
-document.getElementById("audio").onended = function(){
+  document.getElementById("audio").onended = function(){
     i++;
     if (i <= 3){
       a(i);
     }else{i--}
   }
 
+  $('#castButton').click(function() {
+    var mediaURL = './file/audio/Чита-Дрита.mp3';
+
+    var mediaInfo = new chrome.cast.media.MediaInfo(mediaURL);
+    mediaInfo.contentType = medialist[i].url;
+    var request = new chrome.cast.media.LoadRequest(mediaInfo);
+    request.autoplay = true;
+    chrome.cast.requestSession(function(session) {
+      session.loadMedia(request, function() {
+          console.log('Success!');
+      }, function() {
+          console.log('Error');
+      });
+    });
 });
 
-let playlist = ['file/melt_mix.mp4', 'file/лишь шаурма.mp3', 'file/addict.mp3', 'file/sn.mp3'];
+});
+
 let i = 0;
 
+// let { mediaJSON } = require("./mediaList");
+
+// let medialist = mediaJSON;
+
 var medialist = [{
-    "mediaArtist": "Blue Trey",
-    "mediaTitle": "Melt2Mix (Cover)",
+  "mediaArtist": "Blue Trey",
+  "mediaTitle": "Чита-Дрита",
+  "mediaAlbum": "#RusUTAU",
+  "mediaArt": [
+    {"src":"file/img/.jpg",
+    "sizes":"675x450",
+    "type":"image/jpeg"}
+  ],
+  "url": "file/audio/Чита-Дрита.mp3" 
+},
+{
+  "mediaArtist": "Blue Trey",
+  "mediaTitle": "Лишь шаурма (Cover)",
+  "mediaAlbum": "#RusUTAU",
+  "mediaArt": [
+    {"src":"images/shaurma.png",
+    "sizes":"521x659",
+    "type":"image/png"}
+  ],
+  "url": "file/audio/лишь шаурма.mp3"
+},
+{
+  "mediaArtist": "Blue Trey",
+  "mediaTitle": "Addict (Cover)",
+  "mediaAlbum": "#RusUTAU",
+  "mediaArt": [
+    {"src":"file/melt_mix-192.png",
+    "sizes":"192x192",
+    "type":"image/png"}
+  ],
+  "url": "file/audio/addict.mp3"
+},
+  {"mediaArtist": "Genki Tatsu",
+    "mediaTitle": "Снова я напиваюсь",
     "mediaAlbum": "#RusUTAU",
     "mediaArt": [
-      {"src":"file/melt_mix-512.png",
-      "sizes":"512x512",
+      {"src": "images/Riot.bmp",
+      "sizes":"100x100",
       "type":"image/png"}
-    ]},
-  {"mediaArtist": "Blue Trey",
-    "mediaTitle": "Лишь шаурма (Cover)",
-    "mediaAlbum": "#RusUTAU",
-    "mediaArt": [
-      {"src":"images/shaurma.png",
-      "sizes":"521x659",
-      "type":"image/png"}
-    ]},
-    {"mediaArtist": "Blue Trey & Uro",
-      "mediaTitle": "Addict (Cover)",
-      "mediaAlbum": "#RusUTAU",
-      "mediaArt": [
-        {"src": "images/ava.png",
-        "sizes":"512x512",
-        "type":"image/png"}
-      ]},
-      {"mediaArtist": "Genki Tatsu",
-        "mediaTitle": "Снова я напиваюсь (Cover)",
-        "mediaAlbum": "#RusUTAU",
-        "mediaArt": [
-          {"src": "images/Riot.bmp",
-          "sizes":"100x100",
-          "type":"image/bmp"}
-        ]},
-  ]
+  ],
+  "url": "file/audio/sn.mp3"
+}]
 let mediaTitle = medialist[i].mediaTitle; let mediaArtist = medialist[i].mediaArtist; let mediaAlbum = medialist[i].mediaAlbum; let mediaArt = medialist[i].mediaArt;
 
 function mediadata(){
@@ -75,6 +103,20 @@ function mediadata(){
     });
     navigator.mediaSession.setActionHandler('nexttrack', function(){i++;a(i);mediadata()});
     navigator.mediaSession.setActionHandler('previoustrack', function(){i--;a(i);mediadata()});
+
+    var mediaURL = medialist[i].url;
+
+    var mediaInfo = new chrome.cast.media.MediaInfo(mediaURL);
+    mediaInfo.contentType = 'audio/mp3';
+    var request = new chrome.cast.media.LoadRequest(mediaInfo);
+    request.autoplay = true;
+    chrome.cast.requestSession(function(session) {
+      session.loadMedia(request, function() {
+          console.log('Success!');
+      }, function() {
+          console.log('Error');
+      });
+    });
   }
 }
 
@@ -84,14 +126,15 @@ function next() {i++;a(i);mediadata();$("#next").animate({borderRadius:"100px"},
 
 function a(i, event){
   var audioplayer = document.querySelector("#audio");
-  $("#audio").attr('src', playlist[i]);
+  $("#audio").attr('src', medialist[i].url);
   audioplayer.play()
+  playerController.playOrPause()
   .then(_ => {mediadata();})
   .catch(error => {console.log(error);});
   $(".audiojs").addClass('playing');
 
   mediaTitle = medialist[i].mediaTitle; mediaArtist = medialist[i].mediaArtist; mediaAlbum = medialist[i].mediaAlbum; mediaArt = medialist[i].mediaArt;
-
+  
   if (i > 0){
     $("#back").removeAttr("disabled");
     $("#back").addClass("btn-primary");
