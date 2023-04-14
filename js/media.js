@@ -20,25 +20,14 @@ $(function(){
     if (i <= 3){
       a(i);
     }else{i--}
-  }
-
-  $('#castButton').click(function() {
-    var mediaURL = './file/audio/Чита-Дрита.mp3';
-
-    var mediaInfo = new chrome.cast.media.MediaInfo(mediaURL);
-    mediaInfo.contentType = medialist[i].url;
-    var request = new chrome.cast.media.LoadRequest(mediaInfo);
-    request.autoplay = true;
-    chrome.cast.requestSession(function(session) {
-      session.loadMedia(request, function() {
-          console.log('Success!');
-      }, function() {
-          console.log('Error');
-      });
-    });
+  }  
 });
 
-});
+function initializeCastApi() {
+  cast.framework.CastContext.getInstance().setOptions({
+    receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID
+  });
+};
 
 let i = 0;
 
@@ -51,7 +40,7 @@ var medialist = [{
   "mediaTitle": "Чита-Дрита",
   "mediaAlbum": "#RusUTAU",
   "mediaArt": [
-    {"src":"file/img/.jpg",
+    {"src":"file/img/-k7K2Tok-20.jpg",
     "sizes":"675x450",
     "type":"image/jpeg"}
   ],
@@ -106,8 +95,9 @@ function mediadata(){
 
     var mediaURL = medialist[i].url;
 
-    var mediaInfo = new chrome.cast.media.MediaInfo(mediaURL);
-    mediaInfo.contentType = 'audio/mp3';
+    var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
+
+    var mediaInfo = new chrome.cast.media.MediaInfo(mediaURL, 'audio/mp3');
     var request = new chrome.cast.media.LoadRequest(mediaInfo);
     request.autoplay = true;
     chrome.cast.requestSession(function(session) {
@@ -125,10 +115,10 @@ function back() {i--;a(i);mediadata();$("#back").animate({borderRadius:"100px"},
 function next() {i++;a(i);mediadata();$("#next").animate({borderRadius:"100px"}, 200).animate({borderRadius:"20px"}, 150);}
 
 function a(i, event){
+  var mediaURL = medialist[i].url;
   var audioplayer = document.querySelector("#audio");
-  $("#audio").attr('src', medialist[i].url);
+  $("#audio").attr('src', mediaURL);
   audioplayer.play()
-  playerController.playOrPause()
   .then(_ => {mediadata();})
   .catch(error => {console.log(error);});
   $(".audiojs").addClass('playing');
@@ -154,4 +144,20 @@ function a(i, event){
     $("#next").addClass("btn-primary");
     $(".playlist>button:eq("+[i]+")").addClass("btn-primary");
   }
+
+  $('#castButton').click(function() {
+    var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
+  
+    var mediaInfo = new chrome.cast.media.MediaInfo(mediaURL, 'audio/mp3');
+    var request = new chrome.cast.media.LoadRequest(mediaInfo);
+    request.autoplay = true;
+    chrome.cast.requestSession(function(session) {
+      session.loadMedia(request, function() {
+          console.log('Success!');
+      }, function() {
+          console.log('Error');
+      });
+    });
+  });
+
 }
