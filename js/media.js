@@ -64,7 +64,7 @@ var medialist = [{
     "type":"image/png"},
     {"src":"file/img/melt_mix-1451.png",
     "sizes":"1451x1451",
-    "type":"image/png"},
+    "type":"image/png"}
   ],
   "url": "file/audio/addict.mp3"
 },
