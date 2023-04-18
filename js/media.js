@@ -118,7 +118,7 @@ function a(i, event){
   }else if (i <= 0){
     $("#back").attr("disabled","disabled");
     $("#back").removeClass("btn-primary");
-    //$(".playlist>buton:eq("+[i-1]+")").removeClass("btn-primary");
+    //$(".playlist>buton:eq("+[i-1]+")").removeClass("btn-primary"); убейте меня уже пожайлуста
   }
   if (i >= medialist.length - 1){//здесь меняется значение массива
     $("#next").attr("disabled","disabled");
