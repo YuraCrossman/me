@@ -72,7 +72,7 @@ var medialist = [{
     "mediaTitle": "Снова я напиваюсь",
     "mediaAlbum": "#RusUTAU",
     "mediaArt": [
-      {"src": "images/Riot.bmp",
+      {"src": "file/img/Riot-100.jpg",
       "sizes":"100x100",
       "type":"image/png"}
   ],
