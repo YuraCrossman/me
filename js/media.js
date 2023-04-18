@@ -1,12 +1,6 @@
 $(function(){
-  /*audiojs.events.ready(function(){
-    audiojs.createAll();
-  });*/
-  /*header('Cache-Control: no-cache, no-store, must-revalidate');
-  header('Pragma: no-cache');
-  header('Explires: 0');*/ //это был кэш
   let audioplayer = document.querySelector("#audio");
-  //медиядата по умолчанию:
+  //медиадата по умолчанию:
   if('mediaSession' in navigator){
     navigator.mediaSession.metadata = new MediaMetadata({
     artwork: [
@@ -62,7 +56,10 @@ var medialist = [{
   "mediaTitle": "Addict (Cover)",
   "mediaAlbum": "#RusUTAU",
   "mediaArt": [
-    {"src":"file/melt_mix-192.png",
+    {"src":"file/img/melt_mix-512.png",
+    "sizes":"512x512",
+    "type":"image/png"},
+    {"src":"file/img/melt_mix-192.png",
     "sizes":"192x192",
     "type":"image/png"}
   ],
@@ -92,21 +89,6 @@ function mediadata(){
     });
     navigator.mediaSession.setActionHandler('nexttrack', function(){i++;a(i);mediadata()});
     navigator.mediaSession.setActionHandler('previoustrack', function(){i--;a(i);mediadata()});
-
-    var mediaURL = medialist[i].url;
-
-    var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
-
-    var mediaInfo = new chrome.cast.media.MediaInfo(mediaURL, 'audio/mp3');
-    var request = new chrome.cast.media.LoadRequest(mediaInfo);
-    request.autoplay = true;
-    chrome.cast.requestSession(function(session) {
-      session.loadMedia(request, function() {
-          console.log('Success!');
-      }, function() {
-          console.log('Error');
-      });
-    });
   }
 }
 
@@ -115,7 +97,7 @@ function back() {i--;a(i);mediadata();$("#back").animate({borderRadius:"100px"},
 function next() {i++;a(i);mediadata();$("#next").animate({borderRadius:"100px"}, 200).animate({borderRadius:"20px"}, 150);}
 
 function a(i, event){
-  var mediaURL = medialist[i].url;
+  var mediaURL = window.location.origin + '/' + medialist[i].url;
   var audioplayer = document.querySelector("#audio");
   $("#audio").attr('src', mediaURL);
   audioplayer.play()
@@ -135,19 +117,18 @@ function a(i, event){
     $("#back").removeClass("btn-primary");
     //$(".playlist>buton:eq("+[i-1]+")").removeClass("btn-primary");
   }
-  if (i >= playlist.length-1){//здесь меняется значение массива
+  if (i >= medialist.length - 1){//здесь меняется значение массива
     $("#next").attr("disabled","disabled");
     $("#next").removeClass("btn-primary");
     $(".playlist>button:eq("+[i]+")").addClass("btn-primary");
-  }else if (i < playlist.length-1) {
+  }else if (i < medialist.length - 1) {
     $("#next").removeAttr("disabled");
     $("#next").addClass("btn-primary");
     $(".playlist>button:eq("+[i]+")").addClass("btn-primary");
   }
 
   $('#castButton').click(function() {
-    var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
-  
+    var mediaURL = window.location.origin + '/' + medialist[i].url;
     var mediaInfo = new chrome.cast.media.MediaInfo(mediaURL, 'audio/mp3');
     var request = new chrome.cast.media.LoadRequest(mediaInfo);
     request.autoplay = true;
