@@ -55,13 +55,16 @@ var medialist = [{
   "mediaArtist": "Blue Trey",
   "mediaTitle": "Addict (Cover)",
   "mediaAlbum": "#RusUTAU",
-  "mediaArt": [
+  "mediaArt": [    
+    {"src":"file/img/melt_mix-192.png",
+    "sizes":"192x192",
+    "type":"image/png"},
     {"src":"file/img/melt_mix-512.png",
     "sizes":"512x512",
     "type":"image/png"},
-    {"src":"file/img/melt_mix-192.png",
-    "sizes":"192x192",
-    "type":"image/png"}
+    {"src":"file/img/melt_mix-1451.png",
+    "sizes":"1451x1451",
+    "type":"image/png"},
   ],
   "url": "file/audio/addict.mp3"
 },
