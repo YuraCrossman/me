@@ -38,7 +38,7 @@ var medialist = [{
     "sizes":"675x450",
     "type":"image/jpeg"}
   ],
-  "url": "/file/audio/Чита-Дрита.mp3" 
+  "url": "file/audio/Чита-Дрита.mp3" 
 },
 {
   "mediaArtist": "Blue Trey",
@@ -49,7 +49,7 @@ var medialist = [{
     "sizes":"521x659",
     "type":"image/png"}
   ],
-  "url": "/file/audio/лишь шаурма.mp3"
+  "url": "file/audio/лишь шаурма.mp3"
 },
 {
   "mediaArtist": "Blue Trey",
@@ -66,7 +66,7 @@ var medialist = [{
     "sizes":"1451x1451",
     "type":"image/png"}
   ],
-  "url": "/file/audio/addict.mp3"
+  "url": "file/audio/addict.mp3"
 },
   {"mediaArtist": "Genki Tatsu",
     "mediaTitle": "Снова я напиваюсь",
@@ -76,7 +76,7 @@ var medialist = [{
       "sizes":"100x100",
       "type":"image/png"}
   ],
-  "url": "/file/audio/sn.mp3"
+  "url": "file/audio/sn.mp3"
 }]
 let mediaTitle = medialist[i].mediaTitle; let mediaArtist = medialist[i].mediaArtist; let mediaAlbum = medialist[i].mediaAlbum; let mediaArt = medialist[i].mediaArt;
 
@@ -100,7 +100,7 @@ function back() {i--;a(i);mediadata();$("#back").animate({borderRadius:"100px"},
 function next() {i++;a(i);mediadata();$("#next").animate({borderRadius:"100px"}, 200).animate({borderRadius:"20px"}, 150);}
 
 function a(i, event){
-  var mediaURL = window.location.origin + '/' + medialist[i].url;
+  var mediaURL = window.location.href + medialist[i].url;
   var audioplayer = document.querySelector("#audio");
   $("#audio").attr('src', mediaURL);
   audioplayer.play()
@@ -131,7 +131,7 @@ function a(i, event){
   }
 
   $('#castButton').click(function() {
-    var mediaURL = window.location.origin + '/' + medialist[i].url;
+    var mediaURL = window.location.href + medialist[i].url;
     var mediaInfo = new chrome.cast.media.MediaInfo(mediaURL, 'audio/mp3');
     var request = new chrome.cast.media.LoadRequest(mediaInfo);
     request.autoplay = true;
