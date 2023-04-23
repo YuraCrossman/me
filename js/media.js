@@ -19,8 +19,9 @@ $(function(){
 
 function initializeCastApi() {
   cast.framework.CastContext.getInstance().setOptions({
-    receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID
-  });
+    receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID,
+    autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
+  })
 };
 
 let i = 0;
@@ -131,10 +132,15 @@ function a(i, event){
   }
 
   $('#castButton').click(function() {
+    var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
     var mediaURL = window.location.href + medialist[i].url;
     var mediaInfo = new chrome.cast.media.MediaInfo(mediaURL, 'audio/mp3');
     var request = new chrome.cast.media.LoadRequest(mediaInfo);
     request.autoplay = true;
+    castSession.loadMedia(req).then(
+      function(){ console.log('Load session cast'); },
+      function(err) { console.log('Err cast code: ') + err; }
+    );
     chrome.cast.requestSession(function(session) {
       session.loadMedia(request, function() {
           console.log('Success!');
@@ -142,6 +148,18 @@ function a(i, event){
           console.log('Error');
       });
     });
+    var player = new cast.framework.RemotePlayer();
+    var playerController = new cast.framework.RemotePlayerController($(audio));
+
+    playerController.addEventListener(
+      canst.framework.RemotePlayerEventType.MEDIA_INFO_CHANGED, function() {
+        let session = canst.framework.CastContext.getInstance().getCurrentSession();
+        if (!session) {return}
+        let mediaStatus = session.getMediaSession();
+        if(!mediaStatus) {return}
+        let mediaInfo = mediaStatus.media;
+      }
+    );
   });
 
 }
